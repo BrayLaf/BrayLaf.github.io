@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #F2EDED;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,11 +12,18 @@ body {
 }
 
 h1 {
-    color: red;
+    color: #1C1A1A;
     font-size: 36px;
 }
 
 p {
-    color: #666;
+    color: #8756CD;
     font-size: 18px;
+}
+a{
+    color:#7543B3;
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
 }
