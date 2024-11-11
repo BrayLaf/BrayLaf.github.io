@@ -14,7 +14,7 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
 }
 
@@ -48,4 +48,25 @@ ul {
     list-style-type: none;
     gap: 25px;
     padding: 0;
+}
+
+/* Welcome message/ image */
+#mainphoto{
+    display: flex;
+    width: 200px;
+    border: #7543B3 solid;
+    border-radius: 100px;
+    padding: 5px;
+    margin: 20px;
+}
+#myName{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px;
+}
+#welcome{
+    justify-content: center;
 }
