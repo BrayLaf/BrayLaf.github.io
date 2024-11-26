@@ -20,19 +20,21 @@ body {
 
 h1 {
     color: #1C1A1A;
-    font-size: 36px;
+    font-size: 50px;
+}
+
+h2{
+    color: #1C1A1A;
+    font-size: 40px;
 }
 
 p {
     color: #8756CD;
-    font-size: 18px;
+    font-size: 25px;
 }
 a{
     color:#7543B3;
     text-decoration: none;
-}
-ul{
-    list-style-type: none;
 }
 
 /* navigation bar */
@@ -43,7 +45,9 @@ nav {
     padding: 15px;
     position: relative;
 }
-ul {
+#menu {
+    font-size: 20px;
+    list-style: none;
     display: flex;
     list-style-type: none;
     gap: 25px;
@@ -69,4 +73,35 @@ ul {
 }
 #welcome{
     justify-content: center;
+}
+
+/*About me project list, contact info*/
+#aboutMe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+}
+#projectList{
+    list-style: none;
+    color: #1C1A1A;
+}
+.pList{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #8756CD;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+#textrpg, #mybvc{
+    width: 150px;
+}
+#socialLinks{
+    display: flex;
+    align-items: center;
+}
+.logos{
+    width: 200px;
 }
