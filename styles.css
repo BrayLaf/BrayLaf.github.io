@@ -32,7 +32,7 @@ p {
     color: #8756CD;
     font-size: 25px;
 }
-a{
+nav a{
     color:#7543B3;
     text-decoration: none;
 }
@@ -97,6 +97,10 @@ nav {
 }
 #textrpg, #mybvc{
     width: 150px;
+}
+#rpglink{
+    color: #1C1A1A;
+    text-decoration: none;
 }
 #socialLinks{
     display: flex;
