@@ -20,22 +20,126 @@ body {
 
 h1 {
     color: #1C1A1A;
-    font-size: 50px;
+    font-size: calc(2.5vw + 2.5vh);
 }
 
 h2{
     color: #1C1A1A;
-    font-size: 40px;
+    font-size: calc(2vw + 2vh);
 }
 
 p {
     color: #8756CD;
-    font-size: 25px;
+    font-size: calc(1vw + 1vh);
 }
 nav a{
     color:#7543B3;
     text-decoration: none;
 }
+/*mobile*/
+
+  @media only screen and (max-width: 700px) {
+
+    .burger {
+      display: block;
+    }
+    #navigation {
+      display: none;
+    }
+    #myName{
+        order: 1;
+    }
+    #welcome{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+.mobilemenu{
+    background-color: #F2EDED;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    transition: .3s ease;
+    padding: 100px 0 20px 0;
+}
+.mobilemenu.active{
+    right: 0;
+}
+#mobMenu{
+    list-style-type: none;
+}
+#mobMenu a{
+    text-decoration: none;
+}
+.burger{
+    padding: 1rem;
+    display: flex;
+    background-color:#F2EDED;
+}
+.ham{
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    position: relative;
+}
+.ham span{
+    height:5px;
+    width: 100%;
+    background-color: #7543B3;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham span:nth-child(1){
+    top: 25%;
+}
+
+.ham span:nth-child(3){
+    top: 75%;
+}
+
+.ham.active span:nth-child(1){
+    top: 50%;
+    transform:( translate(-50%, -50%)rotate(45deg));
+}
+
+.ham.active span:nth-child(2){
+    opacity: 0;
+}
+
+.ham.active span:nth-child(3){
+    top: 50%;
+    transform: translate(-50%, 50% rotate(-45deg));
+}
+
+
+/*desktop*/
+
+@media only screen and (min-width: 701px) {
+    .burger {
+      display: none;
+    }
+    #navigation {
+      display: flex;
+    }
+
+    .mobilemenu{
+    display: none;
+    }
+  }
+  
 
 /* navigation bar */
 nav {
@@ -72,6 +176,7 @@ nav {
     margin: 20px;
 }
 #welcome{
+    display: flex;
     justify-content: center;
 }
 
