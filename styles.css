@@ -78,12 +78,15 @@ nav a{
     list-style-type: none;
 }
 #mobMenu a{
+    color: #7543B3;
     text-decoration: none;
 }
 .burger{
     padding: 1rem;
     display: flex;
     background-color:#F2EDED;
+    position: fixed;
+    right: 5px;
 }
 .ham{
     height: 50px;
