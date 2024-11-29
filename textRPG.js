@@ -1,86 +1,19 @@
-
 //HTML elements
 const title = document.getElementById("titleScreen");
 const display = document.getElementById("display");
+const dispStats = document.getElementById("stats");
 const userInput = document.getElementById("inputName");
 const charCreate = document.getElementById("createChar");
+const statPage = document.getElementById("charStats");
 const warrior = document.getElementById("Warrior");
 const mage = document.getElementById("Mage");
 const archer = document.getElementById("Archer");
-
-//character variables
-let playerName = "";
-let classChoice = 0;
-
-//hide the title screen
-function startGame(){
-    console.log("hide logo");
-    title.style.display = "none";
-    charCreate.style.display = "block";
-}
-
-// users choice input
-function charSelection(choice){
-    switch(choice){
-        case 1:
-            classChoice = 1;
-            break;
-        case 2:
-            classChoice = 2;
-            break;
-        default:
-            classChoice = 3;
-    }
-}
-//show character creator run game
-function createCharacter(){
-    console.log("create Character");
-    playerName = userInput.value;
-    console.log(playerName);
-    let player = new Character(playerName);
-    chosenClass(classChoice, player);
-    main(player);
-}
-
-
-function chosenClass(choice, player){
-    console.log(choice);
-    switch(choice){
-        case 1:
-        player.characterClass = "Warrior";
-        player.health = 100;
-        player.maxHealth = 100;
-        player.attack = 15;
-        player.defense = 10;
-        break;
-
-        case 2:
-        player.characterClass = "Mage";
-        player.health = 80;
-        player.maxHealth = 80;
-        player.attack = 20;
-        player.defense = 5;
-        break;
-
-        case 3:
-        player.characterClass = "Thief";
-        player.health = 90;
-        player.maxHealth = 90;
-        player.attack = 10;
-        player.defense = 15;
-        break;
-    }
-    
-
-}
-
-
 
 //verson 1.2.1
 
 // Character class
 class Character {
-    constructor(name, characterClass, health = 0, maxHealth = 0, attack = 0, defense = 0, level = 0, experience = 0) {
+    constructor(name, characterClass, health = 0, maxHealth = 0, attack = 0, defense = 0, level = 1, experience = 0) {
         this.name = name;
         this.characterClass = characterClass;
         this.health = health;
@@ -103,12 +36,90 @@ class Enemy {
     }
 }
 
-// Function prototypes
-function displayStats(player) { /* Display player stats */ }
-function battle(player, enemy) { /* Battle function */ }
-function createRandomEnemy(playerLevel) { /* Generate a random enemy based on player level */ }
-function levelUp(player) { /* Level up player */ }
-function encounter(player) { /* Random encounter generator */ }
+//character variables
+let player = new Character("gary");
+let playerName = "";
+let classChoice = 0;
+let start = false;
+
+//hide the title screen
+function startGame(){
+    console.log("hide logo");
+    title.style.display = "none";
+    charCreate.style.display = "block";
+}
+
+// users choice input
+function charSelection(choice){
+    switch(choice){
+        case 1:
+            classChoice = 1;
+            break;
+        case 2:
+            classChoice = 2;
+            break;
+        default:
+            classChoice = 3;
+    }
+}
+//show character creator, display stats/ option to run game
+function createCharacter(){
+    console.log("create Character");
+    playerName = userInput.value;
+    console.log(playerName);
+    player = new Character(playerName);
+    chosenClass(classChoice, player);
+}
+
+// assign character display choice
+function chosenClass(choice, player){
+    console.log(choice);
+    switch(choice){
+        case 1:
+        player.characterClass = "Warrior";
+        player.health = 100;
+        player.maxHealth = 100;
+        player.attack = 15;
+        player.defense = 10;
+        player.level = 1;
+        player.experience = 0;
+        break;
+
+        case 2:
+        player.characterClass = "Mage";
+        player.health = 80;
+        player.maxHealth = 80;
+        player.attack = 20;
+        player.defense = 5;
+        player.level = 1;
+        player.experience = 0;
+        break;
+
+        case 3:
+        player.characterClass = "Archer";
+        player.health = 90;
+        player.maxHealth = 90;
+        player.attack = 10;
+        player.defense = 15;
+        player.level = 1;
+        player.experience = 0;
+        break;
+    }
+    charCreate.style.display = "none";
+    statPage.style.display = "block";
+    console.log(`Character created: ${player.name} the ${player.characterClass}!`);
+    display.innerHTML = `Character created: ${player.name} the ${player.characterClass}!`
+    displayStats(player);
+}
+
+function displayStats(player) {
+    console.log(`Character Stats - Level: ${player.level}, Health: ${player.health}/${player.maxHealth}, Attack: ${player.attack}, Defense: ${player.defense}, Experience: ${player.experience}`);
+    dispStats.innerHTML = `Character Stats - Level: ${player.level}, Health: ${player.health}/${player.maxHealth}, Attack: ${player.attack}, Defense: ${player.defense}, Experience: ${player.experience}`;
+}
+function runGame(){
+    main(player);
+}
+
 
 
 function main(player) {
@@ -116,13 +127,6 @@ function main(player) {
 
     // Game loop
     while (playAgain === 'y' || playAgain === 'Y') {
-        // Character creation
-
-        player.level = 1;
-        player.experience = 0;
-
-        console.log(`Character created: ${player.name} the ${player.characterClass}!`);
-
         // Game encounters
         let i;
         do {
@@ -143,9 +147,7 @@ function main(player) {
 }
 
 // Display player stats
-function displayStats(player) {
-    console.log(`Character Stats - Level: ${player.level}, Health: ${player.health}/${player.maxHealth}, Attack: ${player.attack}, Defense: ${player.defense}, Experience: ${player.experience}`);
-}
+
 
 // Battle function
 function battle(player, enemy) {
