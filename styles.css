@@ -15,17 +15,20 @@ body {
 .container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     text-align: center;
+    margin: 20px;
+    padding: 5px;
 }
 
 h1 {
     color: #1C1A1A;
-    font-size: calc(2.5vw + 2.5vh);
+    font-size: calc(1.7vw + 1.7vh);
 }
 
 h2{
     color: #1C1A1A;
-    font-size: calc(2vw + 2vh);
+    font-size: calc(1.5vw + 1.5vh);
 }
 
 p {
@@ -36,25 +39,6 @@ nav a{
     color:#7543B3;
     text-decoration: none;
 }
-/*mobile*/
-
-  @media only screen and (max-width: 700px) {
-
-    .burger {
-      display: block;
-    }
-    #navigation {
-      display: none;
-    }
-    #myName{
-        order: 1;
-    }
-    #welcome{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-  }
 
 .mobilemenu{
     background-color: #F2EDED;
@@ -86,7 +70,7 @@ nav a{
     display: flex;
     background-color:#F2EDED;
     position: fixed;
-    right: 5px;
+    right: 0;
 }
 .ham{
     height: 50px;
@@ -127,22 +111,6 @@ nav a{
     transform: translate(-50%, 50% rotate(-45deg));
 }
 
-
-/*desktop*/
-
-@media only screen and (min-width: 701px) {
-    .burger {
-      display: none;
-    }
-    #navigation {
-      display: flex;
-    }
-
-    .mobilemenu{
-    display: none;
-    }
-  }
-  
 
 /* navigation bar */
 nav {
@@ -219,17 +187,96 @@ nav {
 }
 
 /* Tables */
+#tables{
+    justify-content: center;
+    align-items: center;
+}
 .cheatsheet{
     display: flex;
     flex-direction: column;
-    width: 100%;
     justify-content: center;
     align-items: center;
     border-collapse: collapse;
+    padding: 0 30px 0 30px;
 }
 td, th{
-    width: 100px;
+    height: 50px;
+    width: 180px;
     margin: 10px;
     padding: 20px;
-    border: dashed #1C1A1A;
+    border: solid #7543B3;
 }
+
+/*mobile*/
+
+@media only screen and (max-width: 780px) {
+    h1 {
+        color: #1C1A1A;
+        font-size: calc(3vw + 3vh);
+    }
+    
+    h2{
+        color: #1C1A1A;
+        font-size: calc(2.5vw +2.5vh);
+    }
+    
+    p {
+        color: #8756CD;
+        font-size: calc(1.5vw + 1.5vh);
+    }
+    #tables{
+        flex-direction: column;
+    }
+    .cheatsheet{
+        padding-top: 30px;
+    }
+    td, th{
+        font-size: 1em;
+        height: 2.5em;
+        width: 5em;
+        padding: .5em;
+    }
+    .logos{
+        width: 120px;
+    }
+    .pList{
+        font-size: calc(1.5vw + 1.5vh);
+    }
+    #mainphoto{
+        width: 130px;
+        padding: 5px;
+        margin: 10px;
+    }
+    .burger {
+      display: flex;
+    }
+    #navigation {
+      display: none;
+    }
+    #myName{
+        order: 1;
+    }
+    #welcome{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+  /*desktop*/
+
+@media only screen and (min-width: 781px) {
+    .burger {
+      display: none;
+    }
+    #navigation {
+      display: flex;
+    }
+
+    .mobilemenu{
+    display: none;
+    }
+    #tables{
+        display: flex;
+    }
+  }
