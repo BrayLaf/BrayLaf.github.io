@@ -217,3 +217,19 @@ nav {
 .logos{
     width: 200px;
 }
+
+/* Tables */
+.cheatsheet{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-collapse: collapse;
+}
+td, th{
+    width: 100px;
+    margin: 10px;
+    padding: 20px;
+    border: dashed #1C1A1A;
+}
