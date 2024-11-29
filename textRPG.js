@@ -1,3 +1,81 @@
+
+//HTML elements
+const title = document.getElementById("titleScreen");
+const display = document.getElementById("display");
+const userInput = document.getElementById("inputName");
+const charCreate = document.getElementById("createChar");
+const warrior = document.getElementById("Warrior");
+const mage = document.getElementById("Mage");
+const archer = document.getElementById("Archer");
+
+//character variables
+let playerName = "";
+let classChoice = 0;
+
+//hide the title screen
+function startGame(){
+    console.log("hide logo");
+    title.style.display = "none";
+    charCreate.style.display = "block";
+}
+
+// users choice input
+function charSelection(choice){
+    switch(choice){
+        case 1:
+            classChoice = 1;
+            break;
+        case 2:
+            classChoice = 2;
+            break;
+        default:
+            classChoice = 3;
+    }
+}
+//show character creator run game
+function createCharacter(){
+    console.log("create Character");
+    playerName = userInput.value;
+    console.log(playerName);
+    let player = new Character(playerName);
+    chosenClass(classChoice, player);
+    main(player);
+}
+
+
+function chosenClass(choice, player){
+    console.log(choice);
+    switch(choice){
+        case 1:
+        player.characterClass = "Warrior";
+        player.health = 100;
+        player.maxHealth = 100;
+        player.attack = 15;
+        player.defense = 10;
+        break;
+
+        case 2:
+        player.characterClass = "Mage";
+        player.health = 80;
+        player.maxHealth = 80;
+        player.attack = 20;
+        player.defense = 5;
+        break;
+
+        case 3:
+        player.characterClass = "Thief";
+        player.health = 90;
+        player.maxHealth = 90;
+        player.attack = 10;
+        player.defense = 15;
+        break;
+    }
+    
+
+}
+
+
+
 //verson 1.2.1
 
 // Character class
@@ -32,47 +110,13 @@ function createRandomEnemy(playerLevel) { /* Generate a random enemy based on pl
 function levelUp(player) { /* Level up player */ }
 function encounter(player) { /* Random encounter generator */ }
 
-// Number only
-function notnum() {
-    let count;
-    do {
-        count = parseInt(prompt("Enter your choice:"));
-    } while (isNaN(count));
-    return count;
-}
 
-function main() {
+function main(player) {
     let playAgain = 'y';
 
     // Game loop
     while (playAgain === 'y' || playAgain === 'Y') {
         // Character creation
-        console.log("Welcome to the Text Adventure RPG!");
-        const playerName = prompt("Enter your character's name:");
-        const player = new Character(playerName);
-
-        console.log("Choose a class:\n1. Warrior\n2. Mage\n3. Thief");
-        const classChoice = notnum();
-
-        if (classChoice === 1) {
-            player.characterClass = "Warrior";
-            player.health = 100;
-            player.maxHealth = 100;
-            player.attack = 15;
-            player.defense = 10;
-        } else if (classChoice === 2) {
-            player.characterClass = "Mage";
-            player.health = 80;
-            player.maxHealth = 80;
-            player.attack = 20;
-            player.defense = 5;
-        } else {
-            player.characterClass = "Thief";
-            player.health = 90;
-            player.maxHealth = 90;
-            player.attack = 10;
-            player.defense = 15;
-        }
 
         player.level = 1;
         player.experience = 0;
@@ -198,6 +242,3 @@ function encounter(player) {
         console.log(`You found a safe spot and rested, recovering ${healAmount} health points.`);
     }
 }
-
-// Run the game
-main();

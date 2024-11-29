@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="textRPG.css">
   
   <title>My resume</title>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="HTMLcheat.html">HTML cheatsheet</a></li>
-      <li><a href="CSScheat.html">CSS cheatsheet</a></li>
-      <li><a href="JScheat.html">JavaScript cheatsheet</a></li>
-      <li><a href="resumepg.html">My resume</a></li>
-    </ul> 
-  </nav>
-  <div class="container">
-    <h1>Welcome to Text adventure RPG</h1>
-    <p>We're currently working on our website. Please check back soon!</p> 
+
+  <div id="titleScreen">
+    <h1 id="logo">Dungeons & Bad Decisions</h1>
+    <button onclick="startGame()">start game</button>
+  </div>
+  <div id="createChar">
+    <h3 id="display">Create your character</h3>
+    <input id="inputName">
+    <div id="classChoice">
+      <ul id="classNames">
+        <li onclick="charSelection(1)" id="Warrior">Warrior</li>
+        <li onclick="charSelection(2)" id="Mage">Mage</li>
+        <li onclick="charSelection(3)" id="Archer">Archer</li>
+      </ul>
+      <button id="submit" onclick="createCharacter()">enter</button>
+    </div>
+    
   </div>
 <script src="textRPG.js"></script>
 </body>
