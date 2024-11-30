@@ -8,6 +8,10 @@ const statPage = document.getElementById("charStats");
 const warrior = document.getElementById("Warrior");
 const mage = document.getElementById("Mage");
 const archer = document.getElementById("Archer");
+const disEnemy = document.getElementById("enemy");
+const encTitle = document.getElementById("encTitle");
+const encounterHTML = document.getElementById("encounter");
+const attackHTML = document.getElementById("battle");
 
 //verson 1.2.1
 
@@ -131,7 +135,7 @@ function main(player) {
         let i;
         do {
             encounter(player);
-            i = prompt("Continue (y):").toLowerCase();
+            i = 'y'
         } while ((i === 'y' || i === 'Y') && player.health > 0 && player.level < 5);
 
         if (player.health <= 0) {
@@ -140,25 +144,33 @@ function main(player) {
             console.log("Congratulations! You've reached level 5 and won the game!");
         }
 
-        playAgain = prompt("Would you like to play again? (y/n):").toLowerCase();
+        playAgain = 'y'
     }
 
     console.log("Thank you for playing! Goodbye!");
 }
 
-// Display player stats
-
+function attack(attackyn){
+    if(attackyn){
+        
+    }else{
+       
+    }
+}
 
 // Battle function
 function battle(player, enemy) {
     console.log(`A wild ${enemy.name} appears!`);
+    statPage.style.display = "none";
+    encTitle.innerHTML = `A ${enemy.name} appears`;
+    attackHTML.style.display = "block";
 
     while (player.health > 0 && enemy.health > 0) {
         const playerDamage = Math.max(0, player.attack - enemy.defense);
         const enemyDamage = Math.max(0, enemy.attack - player.defense);
 
-        const attack = prompt("Attack (y/n)").toLowerCase();
-        if (attack === 'y') {
+        attack();
+        if (attack) {
             console.log(`You attack the ${enemy.name} for ${playerDamage} damage.`);
             enemy.health -= playerDamage;
 
@@ -176,7 +188,7 @@ function battle(player, enemy) {
                 console.log(`You were defeated by the ${enemy.name}.`);
                 return;
             }
-        } else if (attack === 'n') {
+        } else if (attack === false) {
             console.log(`You ran from the ${enemy.name}.`);
             return;
         } else {
@@ -196,16 +208,19 @@ function createRandomEnemy(playerLevel) {
         enemy.health = playerLevel * 20;
         enemy.attack = playerLevel * 8;
         enemy.defense = playerLevel * 2;
+        disEnemy.innerHTML = "Goblin";
     } else if (type === 1) {
         enemy.name = "Orc";
         enemy.health = playerLevel * 25;
         enemy.attack = playerLevel * 10;
         enemy.defense = playerLevel * 3;
+        disEnemy.innerHTML = "Orc";
     } else {
         enemy.name = "Troll";
         enemy.health = playerLevel * 30;
         enemy.attack = playerLevel * 9;
         enemy.defense = playerLevel * 4;
+        disEnemy.innerHTML = "Troll";
     }
 
     return enemy;
@@ -229,6 +244,7 @@ function levelUp(player) {
 // Random encounter generator
 function encounter(player) {
     const encounterType = Math.floor(Math.random() * 3);
+    encounterHTML.style.display = "block";
 
     if (encounterType === 0) {
         const enemy = createRandomEnemy(player.level);
@@ -236,11 +252,13 @@ function encounter(player) {
     } else if (encounterType === 1) {
         const treasure = Math.floor(Math.random() * 20 + 10);
         console.log(`You found a treasure chest and gained ${treasure} experience points!`);
+        encTitle.innerHTML = `You found a treasure chest and gained ${treasure} experience points!`;
         player.experience += treasure;
         levelUp(player);
     } else {
         const healAmount = Math.min(player.maxHealth - player.health, 20);
         player.health += healAmount;
         console.log(`You found a safe spot and rested, recovering ${healAmount} health points.`);
+        encTitle.innerHTML = `You found a safe spot and rested, recovering ${healAmount} health points.`;
     }
 }

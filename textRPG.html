@@ -30,6 +30,14 @@
       <h3 id="stats"></h3>
       <button onclick="runGame()">Enter The Dungeon!</button>
   </div>
+  <div id="encounter">
+    <h3 id="encTitle"></h3>
+    <div id="enemy"></div>
+    <ul id="battle" >
+      <li id="attack" onclick="attack(true)" >attack</li>
+      <li id="run" onclick="attack(false)" >run</li>
+    </ul>
+  </div>
 <script src="textRPG.js"></script>
 </body>
 </html>
