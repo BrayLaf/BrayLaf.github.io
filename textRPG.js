@@ -144,7 +144,7 @@ function main(player) {
             console.log("Congratulations! You've reached level 5 and won the game!");
         }
 
-        playAgain = 'y'
+        playAgain = prompt("y to cont, n to end game")
     }
 
     console.log("Thank you for playing! Goodbye!");
