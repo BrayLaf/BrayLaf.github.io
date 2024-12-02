@@ -130,32 +130,29 @@ function main(player) {
     let playAgain = 'y';
 
     // Game loop
-    while (playAgain === 'y' || playAgain === 'Y') {
+    if(playAgain === 'y' || playAgain === 'Y') {
         // Game encounters
-        let i;
-        do {
+        
+        if((playAgain === 'y' || playAgain === 'Y') && player.health > 0 && player.level < 5) {
             encounter(player);
-            i = 'y'
-        } while ((i === 'y' || i === 'Y') && player.health > 0 && player.level < 5);
-
+        }
+    
         if (player.health <= 0) {
             console.log("You have been defeated. Game over!");
-        } else {
+        } else if(player.level > 4) {
             console.log("Congratulations! You've reached level 5 and won the game!");
         }
-
-        playAgain = prompt("y to cont, n to end game")
     }
 
     console.log("Thank you for playing! Goodbye!");
 }
 
-function attack(attackyn){
-    if(attackyn){
-        
-    }else{
-       
-    }
+
+function run(player){
+    console.log(player);
+    statPage.style.display = "none";
+    encTitle.innerHTML = `A you ran losing ${player.health}/${player.maxHealth} health`;
+    statPage.style.display = 'block'
 }
 
 // Battle function
@@ -165,11 +162,10 @@ function battle(player, enemy) {
     encTitle.innerHTML = `A ${enemy.name} appears`;
     attackHTML.style.display = "block";
 
-    while (player.health > 0 && enemy.health > 0) {
+    if (player.health > 0 && enemy.health > 0) {
         const playerDamage = Math.max(0, player.attack - enemy.defense);
         const enemyDamage = Math.max(0, enemy.attack - player.defense);
 
-        attack();
         if (attack) {
             console.log(`You attack the ${enemy.name} for ${playerDamage} damage.`);
             enemy.health -= playerDamage;
@@ -229,7 +225,7 @@ function createRandomEnemy(playerLevel) {
 // Level up player
 function levelUp(player) {
     const levelThreshold = 50;
-    while (player.experience >= levelThreshold) {
+    if (player.experience >= levelThreshold) {
         player.level++;
         player.maxHealth += 20;
         player.attack += 5;
@@ -252,6 +248,7 @@ function encounter(player) {
     } else if (encounterType === 1) {
         const treasure = Math.floor(Math.random() * 20 + 10);
         console.log(`You found a treasure chest and gained ${treasure} experience points!`);
+        //statPage.style.display = "none";
         encTitle.innerHTML = `You found a treasure chest and gained ${treasure} experience points!`;
         player.experience += treasure;
         levelUp(player);
@@ -259,6 +256,7 @@ function encounter(player) {
         const healAmount = Math.min(player.maxHealth - player.health, 20);
         player.health += healAmount;
         console.log(`You found a safe spot and rested, recovering ${healAmount} health points.`);
+       // statPage.style.display = "none";
         encTitle.innerHTML = `You found a safe spot and rested, recovering ${healAmount} health points.`;
     }
 }
