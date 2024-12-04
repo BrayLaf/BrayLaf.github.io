@@ -16,7 +16,7 @@ const attackButton = document.getElementById("attack");
 const runButton = document.getElementById("run");
 const enemyDis = document.getElementById("enemyContain");
 const contButton = document.getElementById("continue");
-
+const damageDisplay = document.getElementById("enemyDamage");
 
 //verson 1.2.1
 
@@ -145,8 +145,16 @@ function main(player) {
     
         if (player.health <= 0) {
             console.log("You have been defeated. Game over!");
+            enemyDis.style.display = "none";
+            statPage.style.display = "none";
+            contButton.style.display = "none";
+            encTitle.innerHTML = "You have been defeated. Game over!";
         } else if(player.level > 4) {
             console.log("Congratulations! You've reached level 5 and won the game!");
+            enemyDis.style.display = "none";
+            statPage.style.display = "none";
+            contButton.style.display = "none";
+            encTitle.innerHTML = "Congratulations! You've reached level 5 and won the game!";
         }
     }
 
@@ -158,7 +166,7 @@ runButton.addEventListener('click', function() {
 });
 function run(){
     console.log(player);
-    enemyDis.style.display = "none"
+    enemyDis.style.display = "none";
     statPage.style.display = "none";
     contButton.style.display = "block";
     player.health -= 20;
@@ -180,29 +188,29 @@ function battle() {
 
         if (attack) {
             console.log(`You attack the ${enemy.name} for ${playerDamage} damage.`);
+            encTitle.innerHTML = `You attack the ${enemy.name} for ${playerDamage} damage.`;
             enemy.health -= playerDamage;
 
             if (enemy.health <= 0) {
                 console.log(`You defeated the ${enemy.name} and gained ${enemy.experienceReward} experience points!`);
                 player.experience += enemy.experienceReward;
+                encTitle.innerHTML = `You defeated the ${enemy.name} and gained ${enemy.experienceReward} experience points!`;
+                enemyDis.style.display = "none";
+                contButton.style.display = "block";
                 levelUp(player);
-                return;
             }
-
+            damageDisplay.innerHTML = `The ${enemy.name} attacks you for ${enemyDamage} damage.`;
             console.log(`The ${enemy.name} attacks you for ${enemyDamage} damage.`);
             player.health -= enemyDamage;
 
             if (player.health <= 0) {
                 console.log(`You were defeated by the ${enemy.name}.`);
-                return;
+                encTitle.innerHTML = `You were defeated by the ${enemy.name}.`;
+                enemyDis.style.display = "none";
+                contButton.style.display = "block";
             }
-        } else if (attack === false) {
-            console.log(`You ran from the ${enemy.name}.`);
-            return;
-        } else {
-            console.log("Invalid Input");
         }
-    }
+    }   
 }
 
 // Generate a random enemy based on player level
@@ -259,6 +267,7 @@ function encounter(player) {
         console.log(`A wild ${enemy.name} appears!`);
         statPage.style.display = "none";
         encTitle.innerHTML = `A ${enemy.name} appears`;
+        damageDisplay.innerHTML = ``
         attackHTML.style.display = "block";
         enemyDis.style.display = "block"
         contButton.style.display = "none";
