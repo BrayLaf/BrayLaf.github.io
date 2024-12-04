@@ -7,3 +7,6 @@ body{
 #createChar, #charStats, #encounter, #battle{
     display: none;
 }
+#continue{
+    display: none;
+}

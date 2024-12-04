@@ -32,12 +32,15 @@
   </div>
   <div id="encounter">
     <h3 id="encTitle"></h3>
-    <div id="enemy"></div>
-    <ul id="battle" >
-      <li id="attack" onclick="battle()" >attack</li>
-      <li id="run" onclick="run()" >run</li>
-    </ul>
-  </div>
+      <div id="enemyContain">
+        <div id="enemy"></div>
+          <ul id="battle" >
+            <li id="attack" >attack</li>
+            <li id="run" >run</li>
+          </ul>
+        </div>
+      </div>
+  <button id="continue" onclick="runGame()">continue</button>
 <script src="textRPG.js"></script>
 </body>
 </html>

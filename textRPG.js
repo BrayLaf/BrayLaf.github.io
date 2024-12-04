@@ -12,6 +12,11 @@ const disEnemy = document.getElementById("enemy");
 const encTitle = document.getElementById("encTitle");
 const encounterHTML = document.getElementById("encounter");
 const attackHTML = document.getElementById("battle");
+const attackButton = document.getElementById("attack");
+const runButton = document.getElementById("run");
+const enemyDis = document.getElementById("enemyContain");
+const contButton = document.getElementById("continue");
+
 
 //verson 1.2.1
 
@@ -40,8 +45,9 @@ class Enemy {
     }
 }
 
-//character variables
-let player = new Character("gary");
+//character variablesc
+let player;
+let enemy;
 let playerName = "";
 let classChoice = 0;
 let start = false;
@@ -147,21 +153,27 @@ function main(player) {
     console.log("Thank you for playing! Goodbye!");
 }
 
-
-function run(player){
+runButton.addEventListener('click', function() {
+    run();
+});
+function run(){
     console.log(player);
+    enemyDis.style.display = "none"
     statPage.style.display = "none";
-    encTitle.innerHTML = `A you ran losing ${player.health}/${player.maxHealth} health`;
-    statPage.style.display = 'block'
+    contButton.style.display = "block";
+    player.health -= 20;
+    encTitle.innerHTML = `A you ran losing 20 health, current health ${player.health}/${player.maxHealth} health`;
 }
 
 // Battle function
-function battle(player, enemy) {
-    console.log(`A wild ${enemy.name} appears!`);
-    statPage.style.display = "none";
-    encTitle.innerHTML = `A ${enemy.name} appears`;
-    attackHTML.style.display = "block";
+attackButton.addEventListener('click', function() {
+    battle();
+});
 
+
+function battle() {
+    console.log('you are attacking');
+    console.log(player.health);
     if (player.health > 0 && enemy.health > 0) {
         const playerDamage = Math.max(0, player.attack - enemy.defense);
         const enemyDamage = Math.max(0, enemy.attack - player.defense);
@@ -243,12 +255,18 @@ function encounter(player) {
     encounterHTML.style.display = "block";
 
     if (encounterType === 0) {
-        const enemy = createRandomEnemy(player.level);
-        battle(player, enemy);
+        enemy = createRandomEnemy(player.level);
+        console.log(`A wild ${enemy.name} appears!`);
+        statPage.style.display = "none";
+        encTitle.innerHTML = `A ${enemy.name} appears`;
+        attackHTML.style.display = "block";
+        enemyDis.style.display = "block"
+        contButton.style.display = "none";
     } else if (encounterType === 1) {
         const treasure = Math.floor(Math.random() * 20 + 10);
         console.log(`You found a treasure chest and gained ${treasure} experience points!`);
-        //statPage.style.display = "none";
+        statPage.style.display = "none";
+        contButton.style.display = "block";
         encTitle.innerHTML = `You found a treasure chest and gained ${treasure} experience points!`;
         player.experience += treasure;
         levelUp(player);
@@ -256,7 +274,8 @@ function encounter(player) {
         const healAmount = Math.min(player.maxHealth - player.health, 20);
         player.health += healAmount;
         console.log(`You found a safe spot and rested, recovering ${healAmount} health points.`);
-       // statPage.style.display = "none";
+        statPage.style.display = "none";
+        contButton.style.display = "block";
         encTitle.innerHTML = `You found a safe spot and rested, recovering ${healAmount} health points.`;
     }
 }
