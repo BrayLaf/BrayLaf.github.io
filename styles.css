@@ -17,8 +17,8 @@ body {
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    margin: 20px;
-    padding: 5px;
+    margin: 40px;
+    padding: 10px;
 }
 
 h1 {
@@ -117,7 +117,7 @@ nav {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    padding: 15px;
+    padding: 0;
     position: relative;
 }
 #menu {
@@ -126,19 +126,29 @@ nav {
     display: flex;
     list-style-type: none;
     gap: 25px;
-    padding: 0;
+    padding: 10px;
+    position: fixed;
+    background-color: #F2EDED;
 }
 
 /* Welcome message/ image */
 #mainphoto{
-    display: flex;
-    width: 200px;
     border: #7543B3 solid;
     border-radius: 100px;
+}
+.welImage{
+    display: flex;
+    width: 200px;
     padding: 5px;
     margin: 20px;
 }
-#myName{
+#htmlLogo{
+    display: flex;
+    width: 200px;
+    padding: 5px;
+    margin: 20px;
+}
+#myName, #htmlWelcome{
     text-align: start;
     display: flex;
     flex-direction: column;
@@ -241,7 +251,7 @@ td, th{
     .pList{
         font-size: calc(1.5vw + 1.5vh);
     }
-    #mainphoto{
+    .welImage{
         width: 130px;
         padding: 5px;
         margin: 10px;
@@ -252,7 +262,7 @@ td, th{
     #navigation {
       display: none;
     }
-    #myName{
+    #myName, #htmlWelcome{
         order: 1;
     }
     #welcome{
