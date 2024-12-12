@@ -34,8 +34,9 @@
         <li><a href="resumepg.html">My resume</a></li>
       </ul>  
     </nav>
-  <div class="container">
-    <h1>CSS Cheatsheet For Newbies And Pros!</h1>
+  <div class="container" id="welcome">
+    <h1 class="welcomeTitle">CSS Cheatsheet For Newbies And Pros!</h1>
+    <img class="welImage"  id="CSSLogo" alt="CSS logo" src="images\icons8-css-logo-150.png">
   </div>
   <div id="tables">
     <table class="cheatsheet">
@@ -43,57 +44,48 @@
             <tr>
                 <th>Element</th>
                 <th>Description</th>
-                <th>Use case</th>
                 <th>Example</th>
             </tr>
         </thead>
         <tr>
-            <td>Row 1, Col 1</td>
-            <td>Row 1, Col 2</td>
-            <td>Row 1, Col 3</td>
-            <td>Row 1, Col 4</td>
+            <td>display</td>
+            <td>sets the display type of an element(flex, box, etc)</td>
+            <td>div{display:flex}</td>
         </tr>
         <tr>
-            <td>Row 2, Col 1</td>
-            <td>Row 2, Col 2</td>
-            <td>Row 2, Col 3</td>
-            <td>Row 2, Col 4</td>
+            <td>#idname</td>
+            <td>targets the element with the id "idname"</td>
+            <td>#idname{style changes to that specific element}</td>
         </tr>
         <tr>
-            <td>Row 3, Col 1</td>
-            <td>Row 3, Col 2</td>
-            <td>Row 3, Col 3</td>
-            <td>Row 3, Col 4</td>
+            <td>.classname</td>
+            <td>targets all elements with the class "classname"</td>
+            <td>.classname{style changes to all elements with that class}</td>
         </tr>
         <tr>
-            <td>Row 4, Col 1</td>
-            <td>Row 4, Col 2</td>
-            <td>Row 4, Col 3</td>
-            <td>Row 4, Col 4</td>
+            <td>flex-direction</td>
+            <td>sets the direction of flexible items</td>
+            <td>div{display:flex <br>flex-direction: column}</td>
         </tr>
         <tr>
-            <td>Row 5, Col 1</td>
-            <td>Row 5, Col 2</td>
-            <td>Row 5, Col 3</td>
-            <td>Row 5, Col 4</td>
+            <td>font-size</td>
+            <td>Sets the size of a font, either with a variable or with keywords like "small", "larger", etc.</td>
+            <td>p{font-size: larger}</td>
         </tr>
         <tr>
-            <td>Row 6, Col 1</td>
-            <td>Row 6, Col 2</td>
-            <td>Row 6, Col 3</td>
-            <td>Row 6, Col 4</td>
+            <td>font-family</td>
+            <td>sets the font style with an option to add multiple incase the inital font style doesnt work </td>
+            <td>p{font-family: arial "Times New Roman"}</td>
         </tr>
         <tr>
-            <td>Row 7, Col 1</td>
-            <td>Row 7, Col 2</td>
-            <td>Row 7, Col 3</td>
-            <td>Row 7, Col 4</td>
+            <td>align-content</td>
+            <td>Used with the flex property, used to align content within a flex container</td>
+            <td>div{display: flex; <br> align-content: center;}</td>
         </tr>
         <tr>
-            <td>Row 8, Col 1</td>
-            <td>Row 8, Col 2</td>
-            <td>Row 8, Col 3</td>
-            <td>Row 8, Col 4</td>
+            <td>align-items</td>
+            <td>align items within a container</td>
+            <td>div{align-items: center;}</td>
         </tr>
     </table>
 
@@ -102,57 +94,48 @@
             <tr>
                 <th>Element</th>
                 <th>Description</th>
-                <th>Use case</th>
                 <th>Example</th>
             </tr>
         </thead>
         <tr>
-            <td>Row 9, Col 1</td>
-            <td>Row 9, Col 2</td>
-            <td>Row 9, Col 3</td>
-            <td>Row 9, Col 4</td>
+            <td>align-self</td>
+            <td>aligns selected item</td>
+            <td>p{align-self: auto;}</td>
         </tr>
         <tr>
-            <td>Row 10, Col 1</td>
-            <td>Row 10, Col 2</td>
-            <td>Row 10, Col 3</td>
-            <td>Row 10, Col 4</td>
+            <td>div:last-child</td>
+            <td>selects the last child of its parent(in this case it would be the last div of its parent)</td>
+            <td>div:last-child{style changes}</td>
         </tr>
         <tr>
-            <td>Row 11, Col 1</td>
-            <td>Row 11, Col 2</td>
-            <td>Row 11, Col 3</td>
-            <td>Row 11, Col 4</td>
+            <td>div:first-child</td>
+            <td>selects the first child of its parent(in this case it would be the first div of its parent)</td>
+            <td>div:first-child{style changes}</td>
         </tr>
         <tr>
-            <td>Row 12, Col 1</td>
-            <td>Row 12, Col 2</td>
-            <td>Row 12, Col 3</td>
-            <td>Row 12, Col 4</td>
+            <td>div:nth-of-type(3)</td>
+            <td>selects an element based on its position among siblings of the same type(in this case it would be the 3rd div)</td>
+            <td>div:nth-of-type(3){style changes}</td>
         </tr>
         <tr>
-            <td>Row 13, Col 1</td>
-            <td>Row 13, Col 2</td>
-            <td>Row 13, Col 3</td>
-            <td>Row 13, Col 4</td>
+            <td>:root</td>
+            <td>similar to the html selector but is higher priority, also usually used to declare custom variables</td>
+            <td>:root{--primary-color: blue;}</td>
         </tr>
         <tr>
-            <td>Row 14, Col 1</td>
-            <td>Row 14, Col 2</td>
-            <td>Row 14, Col 3</td>
-            <td>Row 14, Col 4</td>
+            <td>a:hover</td>
+            <td>a link when you hover over it</td>
+            <td>a:hover{color: red;}</td>
         </tr>
         <tr>
-            <td>Row 15, Col 1</td>
-            <td>Row 15, Col 2</td>
-            <td>Row 15, Col 3</td>
-            <td>Row 15, Col 4</td>
+            <td>a:visited</td>
+            <td>link after it has been visited</td>
+            <td>a:visited{ background-color: green;}</td>
         </tr>
         <tr>
-          <td>Row 16, Col 1</td>
-          <td>Row 16, Col 2</td>
-          <td>Row 16, Col 3</td>
-          <td>Row 16, Col 4</td>
+          <td>a:active</td>
+          <td>a link that is being activated</td>
+          <td>a:active{ color: aqua;}</td>
       </tr>
     </table>
 </div>

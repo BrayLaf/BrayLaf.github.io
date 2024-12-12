@@ -142,13 +142,7 @@ nav {
     padding: 5px;
     margin: 20px;
 }
-#htmlLogo{
-    display: flex;
-    width: 200px;
-    padding: 5px;
-    margin: 20px;
-}
-#myName, #htmlWelcome{
+#myName, .welcomeTitle{
     text-align: start;
     display: flex;
     flex-direction: column;
@@ -262,7 +256,7 @@ td, th{
     #navigation {
       display: none;
     }
-    #myName, #htmlWelcome{
+    #myName, .welcomeTitle{
         order: 1;
     }
     #welcome{
