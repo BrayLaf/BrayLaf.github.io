@@ -49,43 +49,39 @@
         </thead>
         <tr>
             <td>for</td>
-            <td>Row 1, Col 2</td>
-            <td>Row 1, Col 3</td>
+            <td>A loop statment best used when you know how many times you wanna loop</td>
+            <td>for(let i = 0; i < x; i++){}</td>
         </tr>
         <tr>
             <td>while</td>
-            <td>Row 2, Col 2</td>
-            <td>Row 2, Col 3</td>
+            <td>A loop statment that checks a condition and will loop until that condition is met/ no longer true</td>
+            <td>while(x === 2){}</td>
         </tr>
         <tr>
             <td>do while</td>
-            <td>Row 3, Col 2</td>
-            <td>Row 3, Col 3</td>
+            <td>Like the while loop but checks the condition after looping and not before</td>
+            <td>do{}while(x === 2);</td>
         </tr>
-        <tr>
-            <td>if</td>
-            <td>Row 4, Col 2</td>
-            <td>Row 4, Col 3</td>
-        </tr>
-        <tr>
-            <td>switch</td>
-            <td>Row 5, Col 2</td>
-            <td>Row 5, Col 3</td>
-        </tr>
+       
         <tr>
             <td>console</td>
-            <td>Row 6, Col 2</td>
-            <td>Row 6, Col 3</td>
+            <td>used to target the console</td>
+            <td>console.log(x);</td>
         </tr>
         <tr>
             <td>document</td>
-            <td>Row 7, Col 2</td>
-            <td>Row 7, Col 3</td>
+            <td>used to target the document</td>
+            <td>document.getElementById();</td>
         </tr>
         <tr>
+          <td>function</td>
+          <td>used to declare a function</td>
+          <td>function sumNumber(){}</td>
+      </tr>
+        <tr>
             <td>alert</td>
-            <td>Row 8, Col 2</td>
-            <td>Row 8, Col 3</td>
+            <td>creates a text popup</td>
+            <td>alert("hello world");</td>
         </tr>
     </table>
 
@@ -99,44 +95,50 @@
         </thead>
         <tr>
             <td>prompt</td>
-            <td>Row 9, Col 2</td>
-            <td>Row 9, Col 3</td>
+            <td>creates a prompt to enter text/ numbers</td>
+            <td>prompt("enter your name";</td>
         </tr>
         <tr>
             <td>==</td>
-            <td>Row 10, Col 2</td>
-            <td>Row 10, Col 3</td>
+            <td>checks if the 2 values are equal (doesnt matter if string or integer)</td>
+            <td>5 == '5'(true)</td>
         </tr>
         <tr>
             <td>===</td>
-            <td>Row 11, Col 2</td>
-            <td>Row 11, Col 3</td>
+            <td>checks if values are equal in value and type</td>
+            <td>5 === '5' (false)</td>
         </tr>
         <tr>
             <td>&&</td>
-            <td>Row 12, Col 2</td>
-            <td>Row 12, Col 3</td>
+            <td>the AND operator</td>
+            <td>5 == 5 && '5' === '5'</td>
         </tr>
         <tr>
             <td>||</td>
-            <td>Row 13, Col 2</td>
-            <td>Row 13, Col 3</td>
+            <td>The OR operator</td>
+            <td>5 == '5' || 5 === '5'</td>
+        </tr>
+        <tr>
+            <td>if</td>
+            <td>A conditional statement that will execute only if the condition is true</td>
+            <td>if(x === 8){}</td>
+        </tr>
+        <tr>
+            <td>switch</td>
+            <td>Like the if statement but you can easily check multiple conditions using a case, must use break to prevent fall through</td>
+            <td>switch(x){
+               <br>case 1:<br>break;}</td>
         </tr>
         <tr>
             <td>let</td>
-            <td>Row 14, Col 2</td>
-            <td>Row 14, Col 3</td>
+            <td>declares a variable(string or int or bool)</td>
+            <td>let myName = 'Braydon'</td>
         </tr>
         <tr>
             <td>const</td>
-            <td>Row 15, Col 2</td>
-            <td>Row 15, Col 3</td>
+            <td>declares a constant variable</td>
+            <td>const myName = 'Braydon'</td>
         </tr>
-        <tr>
-          <td>function</td>
-          <td>Row 16, Col 2</td>
-          <td>Row 16, Col 3</td>
-      </tr>
     </table>
 </div>
  <script src="scripts.js"></script>
