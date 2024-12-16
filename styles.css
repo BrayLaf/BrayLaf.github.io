@@ -154,6 +154,15 @@ nav {
     display: flex;
     justify-content: center;
 }
+#resumeWelcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#resume{
+    width: 70vw;
+}
 
 /*About me project list, contact info*/
 #aboutMe{
