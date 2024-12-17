@@ -54,9 +54,10 @@ let start = false;
 
 //hide the title screen
 function startGame(){
+    document.body.style.backgroundImage = "url('D&B-Images/Dungeon_brick_wall_blue.png.png')";
     console.log("hide logo");
     title.style.display = "none";
-    charCreate.style.display = "block";
+    charCreate.style.display = "flex";
 }
 
 // users choice input
@@ -116,7 +117,7 @@ function chosenClass(choice, player){
         break;
     }
     charCreate.style.display = "none";
-    statPage.style.display = "block";
+    statPage.style.display = "flex";
     console.log(`Character created: ${player.name} the ${player.characterClass}!`);
     display.innerHTML = `Character created: ${player.name} the ${player.characterClass}!`
     displayStats(player);
@@ -168,7 +169,7 @@ function run(){
     console.log(player);
     enemyDis.style.display = "none";
     statPage.style.display = "none";
-    contButton.style.display = "block";
+    contButton.style.display = "flex";
     player.health -= 20;
     encTitle.innerHTML = `A you ran losing 20 health, current health ${player.health}/${player.maxHealth} health`;
 }
@@ -196,7 +197,7 @@ function battle() {
                 player.experience += enemy.experienceReward;
                 encTitle.innerHTML = `You defeated the ${enemy.name} and gained ${enemy.experienceReward} experience points!`;
                 enemyDis.style.display = "none";
-                contButton.style.display = "block";
+                contButton.style.display = "flex";
                 levelUp(player);
             }
             damageDisplay.innerHTML = `The ${enemy.name} attacks you for ${enemyDamage} damage.`;
@@ -207,7 +208,7 @@ function battle() {
                 console.log(`You were defeated by the ${enemy.name}.`);
                 encTitle.innerHTML = `You were defeated by the ${enemy.name}.`;
                 enemyDis.style.display = "none";
-                contButton.style.display = "block";
+                contButton.style.display = "flex";
             }
         }
     }   
@@ -260,7 +261,7 @@ function levelUp(player) {
 // Random encounter generator
 function encounter(player) {
     const encounterType = Math.floor(Math.random() * 3);
-    encounterHTML.style.display = "block";
+    encounterHTML.style.display = "flex";
 
     if (encounterType === 0) {
         enemy = createRandomEnemy(player.level);
@@ -268,14 +269,14 @@ function encounter(player) {
         statPage.style.display = "none";
         encTitle.innerHTML = `A ${enemy.name} appears`;
         damageDisplay.innerHTML = ``
-        attackHTML.style.display = "block";
-        enemyDis.style.display = "block"
+        attackHTML.style.display = "flex";
+        enemyDis.style.display = "flex"
         contButton.style.display = "none";
     } else if (encounterType === 1) {
         const treasure = Math.floor(Math.random() * 20 + 10);
         console.log(`You found a treasure chest and gained ${treasure} experience points!`);
         statPage.style.display = "none";
-        contButton.style.display = "block";
+        contButton.style.display = "flex";
         encTitle.innerHTML = `You found a treasure chest and gained ${treasure} experience points!`;
         player.experience += treasure;
         levelUp(player);
@@ -284,7 +285,7 @@ function encounter(player) {
         player.health += healAmount;
         console.log(`You found a safe spot and rested, recovering ${healAmount} health points.`);
         statPage.style.display = "none";
-        contButton.style.display = "block";
+        contButton.style.display = "flex";
         encTitle.innerHTML = `You found a safe spot and rested, recovering ${healAmount} health points.`;
     }
 }
