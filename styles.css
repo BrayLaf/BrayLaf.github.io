@@ -39,6 +39,9 @@ nav a{
     color:#7543B3;
     text-decoration: none;
 }
+nav a:hover{
+    background-color: #7543b331;
+}
 
 .mobilemenu{
     background-color: #F2EDED;
@@ -136,7 +139,6 @@ nav {
     border: #7543B3 solid;
     border-radius: 100px;
 }
-
 .welImage{
     display: flex;
     width: 200px;
@@ -150,6 +152,7 @@ nav {
     justify-content: center;
     padding: 10px;
     margin: 20px;
+    background-color: #7543b331;
 }
 #welcome{
     display: flex;
