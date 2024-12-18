@@ -155,12 +155,16 @@ function main(player) {
             statPage.style.display = "none";
             contButton.style.display = "none";
             encTitle.innerHTML = "You have been defeated. Game over!";
+            fireOrChest.style.display = "flex";
+            fireOrChest.src = "D&B-Images/lose.png";
         } else if(player.level > 4) {
             console.log("Congratulations! You've reached level 5 and won the game!");
             enemyDis.style.display = "none";
             statPage.style.display = "none";
             contButton.style.display = "none";
             encTitle.innerHTML = "Congratulations! You've reached level 5 and won the game!";
+            fireOrChest.style.display = "flex";
+            fireOrChest.src = "D&B-Images/win.png";
         }
     }
 
@@ -177,6 +181,8 @@ function run(){
     contButton.style.display = "flex";
     player.health -= 20;
     encTitle.innerHTML = `A you ran losing 20 health, current health ${player.health}/${player.maxHealth} health`;
+    fireOrChest.style.display = "flex";
+    fireOrChest.src = "D&B-Images/run.png";
 }
 
 // Battle function
@@ -202,6 +208,8 @@ function battle() {
                 player.experience += enemy.experienceReward;
                 encTitle.innerHTML = `You defeated the ${enemy.name} and gained ${enemy.experienceReward} experience points!`;
                 enemyDis.style.display = "none";
+                fireOrChest.style.display = "flex"
+                fireOrChest.src = "D&B-Images/kill.png";
                 contButton.style.display = "flex";
                 levelUp(player);
             }
@@ -214,6 +222,8 @@ function battle() {
                 encTitle.innerHTML = `You were defeated by the ${enemy.name}.`;
                 enemyDis.style.display = "none";
                 contButton.style.display = "flex";
+                fireOrChest.style.display = "flex";
+                fireOrChest.src = "D&B-Images/lose.png";
             }
         }
     }   
