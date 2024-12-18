@@ -21,6 +21,12 @@ body{
 #continue{
     display: none;
 }
+img{
+    width: 200px;
+}
+#enemyImage{
+    width: 500px;
+}
 #gameLogo{
     width: 20vw;
 }
@@ -51,7 +57,4 @@ button:hover{
 #startButton{
     width: 200px;
     height: 100px;
-}
-#enemy{
-    background-color: white;
 }

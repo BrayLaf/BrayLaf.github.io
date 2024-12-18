@@ -17,7 +17,8 @@ const runButton = document.getElementById("run");
 const enemyDis = document.getElementById("enemyContain");
 const contButton = document.getElementById("continue");
 const damageDisplay = document.getElementById("enemyDamage");
-
+const enemydisImage = document.getElementById("enemyImage");
+const characterImage = document.getElementById("characterImage");
 //verson 1.2.1
 
 // Character class
@@ -91,9 +92,10 @@ function chosenClass(choice, player){
         player.health = 100;
         player.maxHealth = 100;
         player.attack = 15;
-        player.defense = 10;
+        player.defense = 3;
         player.level = 1;
         player.experience = 0;
+        characterImage.src = "D&B-Images/sword.png";
         break;
 
         case 2:
@@ -101,9 +103,10 @@ function chosenClass(choice, player){
         player.health = 80;
         player.maxHealth = 80;
         player.attack = 20;
-        player.defense = 5;
+        player.defense = 2;
         player.level = 1;
         player.experience = 0;
+        characterImage.src = "D&B-Images/Wizard-hat.png";
         break;
 
         case 3:
@@ -111,9 +114,10 @@ function chosenClass(choice, player){
         player.health = 90;
         player.maxHealth = 90;
         player.attack = 10;
-        player.defense = 15;
+        player.defense = 5;
         player.level = 1;
         player.experience = 0;
+        characterImage.src = "D&B-Images/bow.png";
         break;
     }
     charCreate.style.display = "none";
@@ -225,19 +229,19 @@ function createRandomEnemy(playerLevel) {
         enemy.health = playerLevel * 20;
         enemy.attack = playerLevel * 8;
         enemy.defense = playerLevel * 2;
-        disEnemy.innerHTML = "Goblin";
+        enemydisImage.src = "D&B-Images/gobo.png";
     } else if (type === 1) {
         enemy.name = "Orc";
         enemy.health = playerLevel * 25;
         enemy.attack = playerLevel * 10;
         enemy.defense = playerLevel * 3;
-        disEnemy.innerHTML = "Orc";
+        enemydisImage.src = "D&B-Images/ork.png";
     } else {
         enemy.name = "Troll";
         enemy.health = playerLevel * 30;
         enemy.attack = playerLevel * 9;
         enemy.defense = playerLevel * 4;
-        disEnemy.innerHTML = "Troll";
+        enemydisImage.src = "D&B-Images/troll.png";
     }
 
     return enemy;
@@ -278,6 +282,7 @@ function encounter(player) {
         statPage.style.display = "none";
         contButton.style.display = "flex";
         encTitle.innerHTML = `You found a treasure chest and gained ${treasure} experience points!`;
+        enemydisImage.src = "D&B-Images/chest.png";
         player.experience += treasure;
         levelUp(player);
     } else {
@@ -287,5 +292,7 @@ function encounter(player) {
         statPage.style.display = "none";
         contButton.style.display = "flex";
         encTitle.innerHTML = `You found a safe spot and rested, recovering ${healAmount} health points.`;
+        enemydisImage.src = "D&B-Images/fire.png";
+
     }
 }

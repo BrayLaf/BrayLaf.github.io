@@ -22,9 +22,9 @@
     <input id="inputName" placeholder="name...">
     <div id="classChoice">
       <ul id="classNames">
-        <li onclick="charSelection(1)" id="Warrior">Warrior</li>
-        <li onclick="charSelection(2)" id="Mage">Mage</li>
-        <li onclick="charSelection(3)" id="Archer">Archer</li>
+        <li onclick="charSelection(1)" id="Warrior"><img src="D&B-Images\sword.png">Warrior</li>
+        <li onclick="charSelection(2)" id="Mage"><img src="D&B-Images\Wizard-hat.png">Mage</li>
+        <li onclick="charSelection(3)" id="Archer"><img src="D&B-Images\bow.png">Archer</li>
       </ul>
       <button id="submit" onclick="createCharacter()">enter</button>
     </div>
@@ -32,13 +32,14 @@
   <div id="charStats">
       <h3 id="display"></h3>
       <h3 id="stats"></h3>
+      <img id="characterImage" src="">
       <button onclick="runGame()">Enter The Dungeon!</button>
   </div>
   <div id="encounter">
     <h3 id="encTitle"></h3>
       <div id="enemyContain">
         <h3 id="enemyDamage"></h3>
-        <div id="enemy"></div>
+        <div id="enemy"><img id="enemyImage" src=""></div>
           <ul id="battle" >
             <li id="attack" >attack</li>
             <li id="run" >run</li>
