@@ -19,6 +19,7 @@ const contButton = document.getElementById("continue");
 const damageDisplay = document.getElementById("enemyDamage");
 const enemydisImage = document.getElementById("enemyImage");
 const characterImage = document.getElementById("characterImage");
+const fireOrChest = document.getElementById("fireChest");
 //verson 1.2.1
 
 // Character class
@@ -276,13 +277,15 @@ function encounter(player) {
         attackHTML.style.display = "flex";
         enemyDis.style.display = "flex"
         contButton.style.display = "none";
+        fireOrChest.style.display = "none";
     } else if (encounterType === 1) {
         const treasure = Math.floor(Math.random() * 20 + 10);
         console.log(`You found a treasure chest and gained ${treasure} experience points!`);
         statPage.style.display = "none";
         contButton.style.display = "flex";
         encTitle.innerHTML = `You found a treasure chest and gained ${treasure} experience points!`;
-        enemydisImage.src = "D&B-Images/chest.png";
+        fireOrChest.style.display = "flex"
+        fireOrChest.src = "D&B-Images/chest.png";
         player.experience += treasure;
         levelUp(player);
     } else {
@@ -291,8 +294,9 @@ function encounter(player) {
         console.log(`You found a safe spot and rested, recovering ${healAmount} health points.`);
         statPage.style.display = "none";
         contButton.style.display = "flex";
+        fireOrChest.style.display = "flex"
+        fireOrChest.src = "D&B-Images/fire.png";
         encTitle.innerHTML = `You found a safe spot and rested, recovering ${healAmount} health points.`;
-        enemydisImage.src = "D&B-Images/fire.png";
 
     }
 }
