@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="textRPG.css">
-  <link rel="icon" href="images\braygo-Logo.png">
+  <link rel="stylesheet" href="../CSS/textRPG.css">
+  <link rel="icon" href="../images/braygo-Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <body>
 
   <div id="titleScreen">
-    <img id="gameLogo" src="images\logo-image.png">
+    <img id="gameLogo" src="../images/logo-image.png">
     <h1 id="logo">Dungeons & Bad Decisions</h1>
     <button id="startButton" onclick="startGame()">start game</button>
   </div>
@@ -22,9 +22,9 @@
     <input id="inputName" placeholder="name...">
     <div id="classChoice">
       <ul id="classNames">
-        <li onclick="charSelection(1)" id="Warrior"><img src="D&B-Images\sword.png">Warrior</li>
-        <li onclick="charSelection(2)" id="Mage"><img src="D&B-Images\Wizard-hat.png">Mage</li>
-        <li onclick="charSelection(3)" id="Archer"><img src="D&B-Images\bow.png">Archer</li>
+        <li onclick="charSelection(1)" id="Warrior"><img src="../D&B-Images/sword.png">Warrior</li>
+        <li onclick="charSelection(2)" id="Mage"><img src="../D&B-Images/Wizard-hat.png">Mage</li>
+        <li onclick="charSelection(3)" id="Archer"><img src="../D&B-Images/bow.png">Archer</li>
       </ul>
       <button id="submit" onclick="createCharacter()">enter</button>
     </div>
@@ -48,6 +48,6 @@
         </div>
       </div>
   <button id="continue" onclick="runGame()">continue</button>
-<script src="textRPG.js"></script>
+<script src="../JS/textRPG.js"></script>
 </body>
 </html>

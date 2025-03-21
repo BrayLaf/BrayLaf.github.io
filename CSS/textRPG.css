@@ -7,7 +7,7 @@
     justify-content: center;
 }
 body{
-    background-image: url("D&B-Images/0.png");
+    background-image: url("../D&B-Images/0.png");
     background-size: cover;
     background-repeat: repeat;
     display: flex;

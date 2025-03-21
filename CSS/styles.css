@@ -1,0 +1,298 @@
+/* general page setup */
+*{
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2EDED;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin: 40px;
+    padding: 10px;
+}
+
+h1 {
+    color: #1C1A1A;
+    font-size: calc(1.7vw + 1.7vh);
+}
+
+h2{
+    color: #1C1A1A;
+    font-size: calc(1.5vw + 1.5vh);
+}
+
+p {
+    color: #8756CD;
+    font-size: calc(1vw + 1vh);
+}
+nav a{
+    color:#7543B3;
+    text-decoration: none;
+}
+nav a:hover{
+    background-color: #7543b331;
+}
+
+.mobilemenu{
+    background-color: #F2EDED;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    transition: .3s ease;
+    padding: 100px 0 20px 0;
+}
+.mobilemenu.active{
+    right: 0;
+}
+#mobMenu{
+    list-style-type: none;
+}
+#mobMenu a{
+    color: #7543B3;
+    text-decoration: none;
+}
+.burger{
+    padding: 1rem;
+    display: flex;
+    background-color:#F2EDED;
+    position: fixed;
+    right: 0;
+}
+.ham{
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    position: relative;
+}
+.ham span{
+    height:5px;
+    width: 100%;
+    background-color: #7543B3;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+}
+.ham span:nth-child(1){
+    top: 25%;
+}
+
+.ham span:nth-child(3){
+    top: 75%;
+}
+
+.ham.active span:nth-child(1){
+    top: 50%;
+    transform:( translate(-50%, -50%)rotate(45deg));
+}
+
+.ham.active span:nth-child(2){
+    opacity: 0;
+}
+
+.ham.active span:nth-child(3){
+    top: 50%;
+    transform: translate(-50%, 50% rotate(-45deg));
+}
+
+
+/* navigation bar */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0;
+    position: relative;
+}
+#menu {
+    font-size: 20px;
+    list-style: none;
+    display: flex;
+    list-style-type: none;
+    gap: 25px;
+    padding: 10px;
+    position: fixed;
+    background-color: #F2EDED;
+}
+
+/* Welcome message/ image */
+#mainphoto{
+    border: #7543B3 solid;
+    border-radius: 100px;
+}
+.welImage{
+    display: flex;
+    width: 200px;
+    padding: 5px;
+    margin: 20px;
+}
+#myName, .welcomeTitle{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px;
+    background-color: #7543b331;
+}
+#welcome{
+    display: flex;
+    justify-content: center;
+}
+#resumeWelcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#resume{
+    width: calc(35vw + 35vh);
+}
+
+/*About me project list, contact info*/
+#aboutMe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+}
+#projectList{
+    list-style: none;
+    color: #1C1A1A;
+}
+.pList{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #8756CD;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+#textrpg, #mybvc{
+    width: 150px;
+}
+#rpglink{
+    color: #1C1A1A;
+    text-decoration: none;
+}
+#socialLinks{
+    display: flex;
+    align-items: center;
+}
+.logos{
+    width: 200px;
+}
+
+/* Tables */
+#tables{
+    justify-content: center;
+    align-items: center;
+}
+.cheatsheet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-collapse: collapse;
+    padding: 0 30px 0 30px;
+}
+td, th{
+    height: 50px;
+    width: 180px;
+    padding: 15px;
+    border: solid #7543B3;
+}
+
+/*mobile*/
+
+@media only screen and (max-width: 780px) {
+    h1 {
+        color: #1C1A1A;
+        font-size: calc(3vw + 3vh);
+    }
+    
+    h2{
+        color: #1C1A1A;
+        font-size: calc(2.5vw +2.5vh);
+    }
+    
+    p {
+        color: #8756CD;
+        font-size: calc(1.5vw + 1.5vh);
+    }
+    #tables{
+        flex-direction: column;
+    }
+    .cheatsheet{
+        padding-top: 30px;
+    }
+    td, th{
+        font-size: 1em;
+        height: 2.5em;
+        width: 5em;
+        padding: .5em;
+    }
+    .logos{
+        width: 120px;
+    }
+    .pList{
+        font-size: calc(1.5vw + 1.5vh);
+    }
+    .welImage{
+        width: 130px;
+        padding: 5px;
+        margin: 10px;
+    }
+    .burger {
+      display: flex;
+    }
+    #navigation {
+      display: none;
+    }
+    #myName, .welcomeTitle{
+        order: 1;
+    }
+    #welcome{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+  /*desktop*/
+
+@media only screen and (min-width: 781px) {
+    .burger {
+      display: none;
+    }
+    #navigation {
+      display: flex;
+    }
+
+    .mobilemenu{
+    display: none;
+    }
+    #tables{
+        display: flex;
+    }
+  }
